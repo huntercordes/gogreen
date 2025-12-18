@@ -1,0 +1,44 @@
+.page {
+  max-width: var(--container-md);
+  margin: 0 auto;
+  padding: var(--space-4);
+  width: 100%;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Page-level grouping only */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.alert {
+  color: var(--color-danger);
+}
+
+/* Simple empty state (not heavy, helps cognitive accessibility) */
+.empty {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--color-bg);
+}
+
+.emptyTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+
+.emptyText {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  max-width: 60ch;
+}

@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* This wrapper crops your logo.png (which includes text)
+   so it behaves like the icon-only mark in the wireframe */
+.logoWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.logo {
+  width: 120px; /* make the lockup larger than the crop box */
+  height: auto;
+  object-fit: cover;
+  object-position: left top; /* keeps the “GG” mark visible */
+  display: block;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: var(--space-1);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.3;
+}
+
+.logout {
+  padding: var(--control-padding-y) var(--control-padding-x);
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.logout:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}

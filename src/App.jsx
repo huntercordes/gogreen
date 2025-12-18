@@ -1,10 +1,42 @@
-function App() {
-  return (
-    <main>
-      <h1>GoGreen</h1>
-      <p>Eco-friendly grocery planner</p>
-    </main>
-  );
+import { Navigate, Route, Routes } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import LoginPage from "./pages/LoginPage";
+import ListsPage from "./pages/ListsPage";
+import ListDetailPage from "./pages/ListDetailPage";
+
+function Protected({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return <p style={{ padding: 16 }}>Loading...</p>;
+  if (!user) return <Navigate to="/login" replace />;
+  return children;
 }
 
-export default App;
+export default function App() {
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route
+          path="/"
+          element={
+            <Protected>
+              <ListsPage />
+            </Protected>
+          }
+        />
+
+        <Route
+          path="/lists/:id"
+          element={
+            <Protected>
+              <ListDetailPage />
+            </Protected>
+          }
+        />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AuthProvider>
+  );
+}
